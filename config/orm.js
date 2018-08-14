@@ -21,6 +21,13 @@ let orm = {
 
             callBack(results);
         })
+    },
+    update: function(tableName, columnName, burgerID, callBack){
+        connection.query('UPDATE ?? SET ?? = true WHERE id = ?', [tableName, columnName, burgerID], function(err, results){
+            if (err) throw err;
+
+            callBack(results);
+        });
     }
 }
 

@@ -6,13 +6,18 @@ let burger = {
             callBack(response);
         });
     },
-    create: function(callBack){
+    create: function(burgerName, callBack){
         orm.create('burgers', burgerName, function(response){
             callBack(response);
         });
     },
-    delete: function(callBack){
+    delete: function(burgerID, callBack){
         orm.delete('burgers', burgerID, function(response){
+            callBack(response);
+        });
+    },
+    update: function(burgerID, callBack){
+        orm.update('burgers', 'devoured', burgerID, function(response){
             callBack(response);
         });
     }
