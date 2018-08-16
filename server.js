@@ -1,8 +1,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
-const connection = require('./config/connection');
 
-const PORT = process.env.PORT || 8080;
+
 
 const app = express();
 
@@ -25,7 +24,7 @@ routes.post(app);
 routes.put(app);
 routes.delete(app);
 
-app.listen(PORT, function () {
+app.listen(process.env.PORT || 8080, function () {
     // Log (server-side) when our server has started
     console.log("Server listening on: http://localhost:" + PORT);
 
