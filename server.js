@@ -37,4 +37,4 @@ connection.connect(function (err) {
         console.log("Server listening on: http://localhost:" + PORT);
         console.log("connected as id " + connection.threadId);
     });  
-  });
+});
