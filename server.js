@@ -1,7 +1,8 @@
 const express = require("express");
 const bodyParser = require("body-parser");
+let connection = require('./config/connection.js');
 
-
+const PORT = process.env.PORT || 8080;
 
 const app = express();
 
@@ -24,8 +25,16 @@ routes.post(app);
 routes.put(app);
 routes.delete(app);
 
-app.listen(process.env.PORT || 8080, function () {
-    // Log (server-side) when our server has started
-    console.log("Server listening on: http://localhost:");
-
-});
+// Make connection.
+connection.connect(function (err) {
+    if (err) {
+        console.error("error connecting: " + err.stack);
+        return;
+    }
+    // Start our server so that it can begin listening to client requests.
+    app.listen(PORT, function () {
+        // Log (server-side) when our server has started
+        console.log("Server listening on: http://localhost:" + PORT);
+        console.log("connected as id " + connection.threadId);
+    });  
+  });
