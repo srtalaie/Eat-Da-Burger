@@ -8,3 +8,6 @@ Burgers you have eaten will then appear on the left.
 App uses ORM and the MVC structure.
 
 https://eat-da-burger-app-1.herokuapp.com/
+
+
+Check out the sequlized version here - https://github.com/srtalaie/sequelized-burger
